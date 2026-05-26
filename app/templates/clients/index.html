@@ -1,0 +1,41 @@
+{% extends 'bases/private.html' %}
+{% block title %}Clients — QuoteKit{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="fw-bold mb-0">Clients</h4>
+  <a href="{{ url_for('clients.new') }}" class="btn fw-semibold"
+     style="background:var(--gold);color:#fff;border:none;">
+    <i class="bi bi-plus-lg me-1"></i> Add Client
+  </a>
+</div>
+{% if clients %}
+<div class="row g-3">
+{% for c in clients %}
+<div class="col-md-6">
+  <div class="bg-white rounded-3 border p-3 d-flex justify-content-between align-items-start">
+    <div>
+      <div class="fw-semibold">{{ c.name }}</div>
+      {% if c.company %}<div class="text-muted small">{{ c.company }}</div>{% endif %}
+      {% if c.email %}<div class="text-muted small"><i class="bi bi-envelope me-1"></i>{{ c.email }}</div>{% endif %}
+      {% if c.phone %}<div class="text-muted small"><i class="bi bi-telephone me-1"></i>{{ c.phone }}</div>{% endif %}
+    </div>
+    <div class="d-flex gap-2">
+      <a href="{{ url_for('clients.edit', client_id=c.id) }}" class="btn btn-sm btn-outline-secondary">
+        <i class="bi bi-pencil"></i>
+      </a>
+      <form method="POST" action="{{ url_for('clients.delete', client_id=c.id) }}"
+            onsubmit="return confirm('Delete {{ c.name }}?')">
+        <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<div class="text-center py-5 text-muted">
+  <i class="bi bi-people fs-1 d-block mb-2" style="opacity:0.3;"></i>
+  No clients yet — <a href="{{ url_for('clients.new') }}" style="color:var(--gold);">add your first client</a>
+</div>
+{% endif %}
+{% endblock %}

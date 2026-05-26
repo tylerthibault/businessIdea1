@@ -1,0 +1,31 @@
+{% extends 'bases/public.html' %}
+{% block title %}Log In — QuoteKit{% endblock %}
+{% block content %}
+<div class="min-vh-100 d-flex align-items-center justify-content-center" style="background:var(--cream);">
+  <div class="card shadow-sm border-0 rounded-3" style="width:100%;max-width:420px;">
+    <div class="card-body p-4">
+      <div class="text-center mb-4">
+        <a href="/" class="text-decoration-none fs-4 fw-bold" style="color:var(--navy);">
+          Quote<span style="color:var(--gold);">Kit</span>
+        </a>
+        <p class="text-muted mt-1 mb-0">Welcome back</p>
+      </div>
+      <form method="POST">
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Email</label>
+          <input type="email" name="email" class="form-control" required autofocus>
+        </div>
+        <div class="mb-4">
+          <label class="form-label fw-semibold">Password</label>
+          <input type="password" name="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn w-100 py-2 fw-semibold"
+                style="background:var(--navy);color:#fff;">Log In</button>
+      </form>
+      <div class="text-center mt-3 text-muted" style="font-size:0.9rem;">
+        No account? <a href="{{ url_for('auth.register') }}" style="color:var(--gold);">Sign up free</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

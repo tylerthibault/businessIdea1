@@ -1,0 +1,25 @@
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.stat-card .stat-value {
+  font-size: 2rem; font-weight: 700; color: var(--navy);
+}
+.stat-card .stat-label {
+  font-size: 0.82rem; color: #6c757d; text-transform: uppercase; letter-spacing: 0.05em;
+}
+.quote-card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0.75rem;
+  transition: box-shadow 0.15s;
+}
+.quote-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.total-display {
+  font-size: 2rem; font-weight: 700; color: var(--navy);
+}
